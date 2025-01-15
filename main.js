@@ -125,7 +125,7 @@ buton && buton.addEventListener("click",function(event){
   let created = document.createElement(selectedElement)
   created.innerHTML = contentText
   block.appendChild(created)
-}
+})
 
 
 /* 8. Shaxsiylashtirilgan salomlashuv yaratish
