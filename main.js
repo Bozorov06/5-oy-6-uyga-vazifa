@@ -11,19 +11,20 @@ const email = document.querySelector('#email').value
 
 form && form.addEventListener('submit', function(e){
     e.preventDefault();
-
+    
     const newtr = document.createElement("tr");
     newtr.innerHTML =
    `<td>${firstName}</td>
     <td>${lastName}</td>
     <td>${email}</td>
-    <td><button class="deleteBtn">O'chirish</button></td>`;
+    <td><button class="deleteBtn">O'chirish</button></td>
+    `;
      document.querySelector("#tablee tbody").appendChild(newtr)
 
      newtr.querySelector(".deleteBtn").addEventListener("click", function() {
     newtr.remove();
      })
-    document.querySelector("#firstName").value= "";
+    document.querySelector("#firstName").value="";
     document.querySelector("#lastName").value= "";
     document.querySelector("#email").value= "";
 })
@@ -35,12 +36,12 @@ form && form.addEventListener('submit', function(e){
 // Foydalanuvchi rangni tanlaganida, matn maydonidagi matn fonining rangi avtomatik o‘zgaradi.
 // Foydalanuvchi matnni o‘zgartirsa, bu matn darhol rangli blokda aks etadi.
 
-const color = document.getElementById("color");
+const colorr = document.getElementById("colorr");
 const textInput = document.getElementById("textInput");
 const colorBlock = document.getElementById("colorBlock");
 
-color && color.addEventListener("input", function () {
-  const selectColor = color.value; 
+colorr && colorr.addEventListener("input", function () {
+  const selectColor = colorr.value; 
   colorBlock.style.backgroundColor = selectColor; 
 });
 
@@ -116,89 +117,7 @@ btn && btn.addEventListener("input", function () {
 // Tavsif: Foydalanuvchi formadagi Rasm URL maydoniga rasm linkini kiritib, Qo‘shish tugmasini bossin.
 // Talablar:
 // Kiritilgan rasmni dinamik slayderga qo‘shish.
-// Oldingi va Keyingi tugmalari orqali slayderni boshqarish. 
-
-
-
-
-
-/* 7. Interaktiv ishlar ro‘yxati (To-Do List)
-Tavsif: Formada foydalanuvchi bajariladigan ishlarni kiritadi va Qo‘shish tugmasini bossa, ro‘yxatga yangi ish qo‘shiladi.
-Qo‘shimcha talablar:
-Har bir ishni o‘chirish uchun O‘chirish tugmasi.
-Ish bajarilganligini belgilash uchun Checkbox. */
-
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-updateUI();
-
-function addTask() {
-  const taskInput = document.getElementById("new-task");
-  const taskText = taskInput.value.trim();
-
-  if (!taskText) return;
-  tasks.push({ text: taskText, completed: false });
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-  taskInput.value = "";
-  updateUI();
-}
-
-function updateUI() {
-  const taskContainer = document.getElementById("tasks");
-  const doneContainer = document.getElementById("done-tasks");
-  const taskCount = document.getElementById("task-count");
-  const doneCount = document.getElementById("done-count");
-
-  taskContainer.innerHTML = "";
-  doneContainer.innerHTML = "";
-
-  const toDoTasks = tasks.filter((task) => !task.completed);
-  const doneTasks = tasks.filter((task) => task.completed);
-
-  taskCount.textContent = toDoTasks.length;
-  doneCount.textContent = doneTasks.length;
-
-  toDoTasks.forEach((task) => {
-    const taskElement = createTaskElement(task);
-    taskContainer.appendChild(taskElement);
-  });
-
-  doneTasks.forEach((task) => {
-    const taskElement = createTaskElement(task);
-    taskElement.classList.add("completed");
-    doneContainer.appendChild(taskElement);
-  });
-}
-
-function createTaskElement(task) {
-  const taskDiv = document.createElement("div");
-  taskDiv.className = "task";
-
-  const taskText = document.createElement("span");
-  taskText.textContent = task.text;
-
-  const completeButton = document.createElement("button");
-  completeButton.textContent = "done";
-  completeButton.onclick = () => {
-    task.completed = true;
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    updateUI();
-  };
-
-  const deleteButton = document.createElement("button");
-  deleteButton.textContent = "delete";
-  deleteButton.onclick = () => {
-    tasks = tasks.filter((t) => t !== task);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    updateUI();
-  };
-
-  taskDiv.appendChild(taskText);
-  taskDiv.appendChild(completeButton);
-  taskDiv.appendChild(deleteButton);
-
-  return taskDiv;
-}
-
+// Oldingi va Keyingi tugmalari orqali slayderni boshqarish.
 
 
 
