@@ -109,16 +109,23 @@ btn && btn.addEventListener("input", function () {
 // Tavsif: Foydalanuvchi formadagi Element turi (masalan, <div>, <p>) va Element mazmuni maydonlariga ma’lumot kiritsa, Yaratish tugmasi bosilganda shu element sahifada paydo bo‘lsin.
 // Qo‘shimcha talablar:
 // Yaratilgan elementga avtomatik stil qo‘llansin (masalan, fon rangi, chekka, kenglik va h.k.).
+const forma = document.querySelector("#forma")
+const content = document.querySelector("#content")
+const element = document.querySelector("#element")
+const buton = document.querySelector("#buton");
+const block = document.querySelector("#block");
 
 
+buton && buton.addEventListener("click",function(event){
+  event.preventDefault();
 
+  let contentText = content.value;
+  let selectedElement = element.value;
 
-//  6. Slider yaratish va boshqarish
-// Tavsif: Foydalanuvchi formadagi Rasm URL maydoniga rasm linkini kiritib, Qo‘shish tugmasini bossin.
-// Talablar:
-// Kiritilgan rasmni dinamik slayderga qo‘shish.
-// Oldingi va Keyingi tugmalari orqali slayderni boshqarish.
-
+  let created = document.createElement(selectedElement)
+  created.innerHTML = contentText
+  block.appendChild(created)
+}
 
 
 /* 8. Shaxsiylashtirilgan salomlashuv yaratish
