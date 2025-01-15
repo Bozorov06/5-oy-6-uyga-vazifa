@@ -109,7 +109,7 @@ btn && btn.addEventListener("input", function () {
 // Tavsif: Foydalanuvchi formadagi Element turi (masalan, <div>, <p>) va Element mazmuni maydonlariga ma’lumot kiritsa, Yaratish tugmasi bosilganda shu element sahifada paydo bo‘lsin.
 // Qo‘shimcha talablar:
 // Yaratilgan elementga avtomatik stil qo‘llansin (masalan, fon rangi, chekka, kenglik va h.k.).
-const forma = document.querySelector("#forma")
+const forma = document.querySelector("#frm")
 const content = document.querySelector("#content")
 const element = document.querySelector("#element")
 const buton = document.querySelector("#buton");
